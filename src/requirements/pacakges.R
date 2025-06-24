@@ -3,7 +3,8 @@
 
 packages <- c("here",
               "dplyr",
-              "readxl")
+              "readxl",
+              "tidyr")
 
 # Package Load ------------------------------------------------------------
 
