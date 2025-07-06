@@ -4,7 +4,11 @@
 packages <- c("here",
               "dplyr",
               "readxl",
-              "tidyr")
+              "tidyr",
+              "scales",
+              "sf",
+              "leaflet",
+              "shiny")
 
 # Package Load ------------------------------------------------------------
 
