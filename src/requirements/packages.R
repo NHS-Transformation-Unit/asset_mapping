@@ -8,7 +8,8 @@ packages <- c("here",
               "scales",
               "sf",
               "leaflet",
-              "shiny")
+              "shiny",
+              "shinycssloaders")
 
 # Package Load ------------------------------------------------------------
 
