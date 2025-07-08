@@ -47,3 +47,8 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# OS Greenspace files
+data/geospatial/os_greenspace/GB_GreenspaceSite.dbf
+data/geospatial/os_greenspace/GB_GreenspaceSite.prj
+data/geospatial/os_greenspace/GB_GreenspaceSite.shx
