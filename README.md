@@ -5,7 +5,7 @@
 This is a Shiny app developed by the [NHS Transformation Unit](https://transformationunit.nhs.uk/) 
 to visualise the distribution of health and wellbeing assets across England, 
 alongside population needs. This has been created in response to the ambitions 
-within the [10 Year Plan]() of:
+within the [10 Year Plan](https://www.gov.uk/government/publications/10-year-health-plan-for-england-fit-for-the-future) of:
 
 - Moving care closer to home
 - Focussing on prevention
