@@ -66,10 +66,10 @@ The repository contains:
 - `.gitignore`: Determines which files to not track.
 - `app.R`: The shiny app for producing the asset map.
 - `data`: Contains the raw data files, geospatial data, processed data files for loading into the app and reference data.
-- `documentation`: Will contain documentation on the data sources used to produce the app along with a brief user guide.
+- `documentation`: Contains documentation on the data sources used to produce the app. User guide documentation will follow.
 - `images`: Contains logos and the data pipeline diagram.
 - `src`: Contains the code for processing data and building the app.
-  - `config`: Contains the tu palette hex colour codes and shape colours for the leaflet maps.
+  - `config`: Contains the TU palette hex colour codes and shape colours for the leaflet maps.
   - `etl`: Contains the scripts for processing the raw data files, transforming geospatial data and then loading relevant files into the app.
   - `helpers`: Contains the `utils.R` file with utility functions for the app.
   - `requirements`: Contains the R packages required for running the pipeline and app.
