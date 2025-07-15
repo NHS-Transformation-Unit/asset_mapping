@@ -197,9 +197,18 @@ server <- function(input, output, session) {
   })
   
   update_map_layers <- function() {
-    req(input$icb_select, input$layer_select, input$lsoa_color_var)
+    if (is.null(input$icb_select) || is.null(input$layer_select) || is.null(input$lsoa_color_var)) return()
+    if (is.null(lsoa_contextual_geo) || !input$icb_select %in% lsoa_contextual_geo$ICB24NM) return()
     
-    data <- filtered_data()
+    data <- tryCatch({
+      filtered_data()
+    }, error = function(e) {
+      message("filtered_data() failed: ", e$message)
+      return(NULL)
+    })
+    
+    if (is.null(data)) return()
+    
     proxy <- leafletProxy("map") |>
       clearShapes() |>
       clearMarkers() |>
@@ -212,8 +221,6 @@ server <- function(input, output, session) {
       
       if (var != "none") {
         values <- lsoa_data[[var]]
-        
-        # Filter invalid rows
         valid_idx <- !is.na(values) & !st_is_empty(lsoa_data) & !is.na(st_dimension(lsoa_data))
         lsoa_data <- lsoa_data[valid_idx, ]
         values <- lsoa_data[[var]]
@@ -394,9 +401,12 @@ server <- function(input, output, session) {
     req(input$layer_select, input$lsoa_color_var)
     update_map_layers()
   }, ignoreInit = FALSE)
+  
+  observeEvent(input$map_bounds, {
+    update_map_layers()
+  }, once = TRUE, ignoreNULL = TRUE)
 }
 
 
 # Run the App -------------------------------------------------------------
 shinyApp(ui, server)
-
