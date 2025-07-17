@@ -35,3 +35,4 @@ new assets are added to the shiny app.
 | Pharmacies | Location of active Pharmacies within UPRNs sourced from the NHS England Organisation Data Service via the UDAL platform | More information available [here](https://digital.nhs.uk/developer/api-catalogue/organisation-data-service-ord).
 | Trust Sites | Location of active Trust sites within UPRNs sourced from the NHS England Organisation Data Service via the UDAL platform | More information available [here](https://digital.nhs.uk/developer/api-catalogue/organisation-data-service-ord).
 | Care Sites | Location of active Care sites within UPRNs sourced from the NHS England Organisation Data Service via the UDAL platform | More information available [here](https://digital.nhs.uk/developer/api-catalogue/organisation-data-service-ord).
+| Education Sites | Location of education sites such as schools sourced from GOV.UK | Available downloads [here](https://get-information-schools.service.gov.uk/Downloads).

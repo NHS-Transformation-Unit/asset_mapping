@@ -8,11 +8,12 @@ alongside population needs. This has been created in response to the ambitions
 within the [10 Year Plan](https://www.gov.uk/government/publications/10-year-health-plan-for-england-fit-for-the-future) of:
 
 - Moving care closer to home
-- Focussing on prevention
+- Focusing on prevention
 
 The app helps users explore the spatial distribution of:
 - Health sites (e.g. GP practices, hospitals, pharmacies)
 - Green spaces (e.g. parks, play areas)
+- Education facilities
 - Population metrics (e.g. demographics, deprivation) at LSOA level
 
 ## Accessing the App

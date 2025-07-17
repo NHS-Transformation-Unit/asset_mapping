@@ -17,6 +17,7 @@ source(paste0(here("src", "config", "tu_palette.R")))
 source(paste0(here("src", "etl", "load_geospatial", "lsoa_contextual_geo.R")))
 source(paste0(here("src", "etl", "load_processed", "greenspace_filtered.R")))
 source(paste0(here("src", "etl", "load_processed", "health.R")))
+source(paste0(here("src", "etl", "load_processed", "education.R")))
 source(paste0(here("src", "etl", "load_reference", "icb_centres.R")))
 source(paste0(here("src", "helpers", "utils.R")))
 
@@ -100,7 +101,8 @@ ui <- fluidPage(
                  checkboxGroupInput("layer_select", "Select layers to display:",
                                     choices = c("LSOA Boundaries" = "lsoa",
                                                 "Green Spaces" = "greenspace",
-                                                "Health Sites" = "health"),
+                                                "Health Sites" = "health",
+                                                "Education Sites" = "education"),
                                     selected = c("lsoa", "greenspace")),
                  hr(),
                  selectInput("lsoa_color_var", "Colour LSOAs by:",
@@ -173,13 +175,18 @@ server <- function(input, output, session) {
                 .predicate = st_intersects)
     }
     
+    education = st_filter(st_transform(school_geo, crs = st_crs(lsoa_filtered)),
+                          lsoa_filtered,
+                          .predicate = st_intersects)
+    
     list(
       lsoa = st_transform(lsoa_filtered, crs = 4326),
       greenspace = st_transform(greenspace_filtered, crs = 4326),
       gp = if ("gp" %in% health_types) st_transform(health_filter(gp_practices_geo), crs = 4326) else NULL,
       pharmacy = if ("pharmacy" %in% health_types) st_transform(health_filter(pharmacy_geo), crs = 4326) else NULL,
       hospital = if ("hospital" %in% health_types) st_transform(health_filter(trust_sites_geo), crs = 4326) else NULL,
-      care = if ("care" %in% health_types) st_transform(health_filter(care_sites_geo), crs = 4326) else NULL
+      care = if ("care" %in% health_types) st_transform(health_filter(care_sites_geo), crs = 4326) else NULL,
+      education = st_transform(education, crs = 4326)
     )
   })
   
@@ -390,6 +397,31 @@ server <- function(input, output, session) {
         )
       }
     }
+    
+    # Education Sites
+    if ("education" %in% input$layer_select && !is.null(data$education)) {
+      proxy <- proxy |> addCircleMarkers(
+        data = data$education,
+        radius = 5,
+        fillColor = palette_tu[5],
+        color = palette_tu[5],
+        fillOpacity = 0.8,
+        stroke = TRUE,
+        weight = 1,
+        popup = ~paste0(
+          "<strong>School Name: </strong>", Establishment_Name, "<br/>",
+          "<strong>Group: </strong>", Establishment_Group
+        )
+      ) |>
+        addLegend(
+          position = "bottomleft",
+          colors = palette_tu[5],
+          labels = "Education Site",
+          title = "Education Assets",
+          opacity = 0.8
+        )
+    }
+    
   }
   
   observe({
