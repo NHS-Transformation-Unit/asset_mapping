@@ -74,7 +74,7 @@ ui <- fluidPage(
                  Ordnance Survey (OS). These choices will update the map and enable the selection of specific assets for 
                  those choices."),
                h4("Colour LSOAs"),
-               p("You can choose to colour each LSOA by a population demographic metric such as the population of paitents 
+               p("You can choose to colour each LSOA by a population demographic metric such as the population of patients 
                  who are aged 75 years or older or the deprivation decile based on the 2019 Index of Multiple Deprivation (IMD)."),
                h4("Additional Asset Selections"),
                p("When you choose what layers you want to display on the map you may be presented with additional check boxes 
