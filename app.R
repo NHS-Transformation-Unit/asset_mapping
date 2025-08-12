@@ -40,7 +40,9 @@ ui <- fluidPage(
                tags$img(src = "images/TU_logo_large.png", height = "80px", style = "float: right; margin-top: 10px;"),
                h1("Asset Map"),
                hr(),
+               br(),
                h3("Introduction"),
+               hr(),
                p("The ", tags$a("NHS 10 Year Plan", href = "https://assets.publishing.service.gov.uk/media/6866387fe6557c544c74db7a/fit-for-the-future-10-year-health-plan-for-england.pdf", target = "_blank"),
                  " has the ambitions of moving care closer to home and focussing on prevention. For these 
                  ambitions to be realised there needs to be an understanding of the range of health and care 
@@ -62,29 +64,31 @@ ui <- fluidPage(
                  population need, helping you explore their distribution in one place."),
                br(),
                h3("How to use the app"),
+               hr(),
                p("To view the map navigate to the ", strong("ICB Map"), " tab located in the navigation bar at the top. Follow 
                  the instructions below to change the information shown on the map:"),
                br(),
-               h4("Select an ICB"),
+               h4("1. Select an ICB"),
                p("Use the drop-down menu to select the ICB that you are interested in. This will update the map to centre 
                  and zoom in on that specific ICB."),
-               h4("Select layers to display"),
+               h4("2. Select layers to display"),
                p("Tick the check boxes to determine which layers on the map you want to show. For example, the boundaries 
                  of each Lower Super Output Area (LSOA) within the ICB or the location of green spaces identified by the 
                  Ordnance Survey (OS). These choices will update the map and enable the selection of specific assets for 
                  those choices."),
-               h4("Colour LSOAs"),
+               h4("3. Colour LSOAs"),
                p("You can choose to colour each LSOA by a population demographic metric such as the population of patients 
                  who are aged 75 years or older or the deprivation decile based on the 2019 Index of Multiple Deprivation (IMD)."),
-               h4("Additional Asset Selections"),
+               h4("4. Additional Asset Selections"),
                p("When you choose what layers you want to display on the map you may be presented with additional check boxes 
                  that present assets you wish to show at a more granular layer. Select those assets that you wish to show on the map."),
-               h4("Navigating the map"),
+               h4("5. Navigating the map"),
                p("You can navigate the map using the zoom controls and by dragging your mouse to move around the ICB or zoom in on a 
                  specific area to see this in more detail. Clicking on the layers in the map will present more information such as the 
                  name of a GP practice or the deprivation decile of that LSOA."),
                br(),
                h3("Metadata and Code"),
+               hr(),
                p("This app has been developed by ", tags$a("Andy Wilson", href = "https://github.com/ASW-Analyst", target = "_blank"), 
                  "Modelling and Analytics lead at the ", tags$a("NHS Transformation Unit", href = "https://transformationunit.nhs.uk/", target = "_blank"),
                  ". At the Transformation Unit we are committed to the transparency of our work. Therefore, all the information about 
